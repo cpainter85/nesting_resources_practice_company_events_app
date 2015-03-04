@@ -1,0 +1,17 @@
+.container
+  .page-header
+    %h1=link_to "#{@company.name}'s Events", company_path(@company)
+  .well
+    =link_to 'New Event', new_company_event_path(@company)
+  %table.table
+    %thead
+      %tr
+        %th Title
+    %tbody
+      -@events.each do |event|
+        %tr
+          %td=event.title
+          %td
+            .pull-right
+              =link_to 'Edit', edit_company_event_path(@company, event), class: 'btn btn-primary'
+              =link_to 'Delete', company_event_path(@company, event), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'

@@ -1,0 +1,5 @@
+.container
+  .page-header
+    %h1=@event.title
+  %p=@event.description
+  %p=link_to 'Back', company_events_path(@company), class: 'btn btn-default'

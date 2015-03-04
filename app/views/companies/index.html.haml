@@ -1,0 +1,19 @@
+.container
+  .page-header
+    %h1 Companies
+  .well
+    =link_to 'New Company', new_company_path
+  %table.table
+    %thead
+      %tr
+        %th Name
+
+
+    %tbody
+      -@companies.each do |company|
+        %tr
+          %td=link_to company.name, company_path(company)
+          %td
+            .pull-right
+              =link_to 'Edit', edit_company_path(company), class: 'btn btn-primary'
+              =link_to 'Delete', company_path(company), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
